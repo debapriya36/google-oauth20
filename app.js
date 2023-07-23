@@ -29,9 +29,10 @@ app.get('/', (req, res) => {
 app.get('/og',
     passport.authenticate('google', {
         scope:
-            ['email', 'profile']
-    }
-    ));
+            ['email', 'profile'],
+            accessType: 'offline', approvalPrompt: 'force' 
+    })
+    );
 
 app.get('/og/cb',
     passport.authenticate('google', {
